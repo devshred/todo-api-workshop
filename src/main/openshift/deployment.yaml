@@ -23,3 +23,9 @@ spec:
             - containerPort: 8080
               name: http
               protocol: TCP
+          env:
+            - name: APP_STAGE_NAME
+              valueFrom:
+                  configMapKeyRef:
+                    key: app.stage-name
+                    name: todo-api-quarkus
