@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-api-quarkus
+  namespace: johannes-test
+spec:
+  paused: true
+  selector:
+    matchLabels:
+      app: todo-api-quarkus
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: todo-api-quarkus
+    spec:
+      serviceAccountName: todo-api-quarkus
+      containers:
+        - name: todo-api-quarkus
+          image: >-
+            todo-api-quarkus:latest
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
