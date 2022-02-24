@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: todo-api-quarkus
+  namespace: johannes-test
+data:
+  app.stage-name: okd-cluster
